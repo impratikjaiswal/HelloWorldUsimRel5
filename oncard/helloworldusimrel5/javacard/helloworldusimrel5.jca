@@ -1,0 +1,283 @@
+// converted by version 1.3
+// on Sun Feb 18 00:27:41 IST 2018
+
+.package helloworldusimrel5 {
+	.aid 0xA0:0x0:0x0:0x0:0x18:0x50:0x0:0x0:0x0:0x0:0x0:0x0:0x52:0x41:0x44:0x50;
+	.version 2.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.2;		//javacard/framework
+		0xA0:0x0:0x0:0x0:0x9:0x0:0x3:0xFF:0xFF:0xFF:0xFF:0x89:0x10:0x71:0x0:0x2 2.6;		//sim/toolkit
+	}
+
+	.applet {
+		0xA0:0x0:0x0:0x0:0x18:0x50:0x0:0x0:0x0:0x0:0x0:0x0:0x52:0x41:0x44:0x41 HelloWorldUsimRel5;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef 1.9 HelloWorldUsimRel5/reg;
+		// 1
+		staticMethodRef 1.9.0()Lsim/toolkit/ToolkitRegistry;;		// sim/toolkit/ToolkitRegistry.getEntry()Lsim/toolkit/ToolkitRegistry;
+			.descriptor	Lsim/toolkit/ToolkitRegistry;	1.9;
+
+		// 2
+		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 3
+		virtualMethodRef 1.9.9(B)V;		// sim/toolkit/ToolkitRegistry.setEvent(B)V
+		// 4
+		classRef HelloWorldUsimRel5;
+		// 5
+		staticMethodRef HelloWorldUsimRel5/<init>()V;
+		// 6
+		virtualMethodRef 0.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
+		// 7
+		staticMethodRef HelloWorldUsimRel5/processDT()V;
+		// 8
+		virtualMethodRef 0.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 9
+		virtualMethodRef 0.10.1()[B;		// javacard/framework/APDU.getBuffer()[B
+		// 10
+		staticMethodRef 0.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 11
+		virtualMethodRef 0.10.6()S;		// javacard/framework/APDU.setIncomingAndReceive()S
+		// 12
+		virtualMethodRef 0.10.7()S;		// javacard/framework/APDU.setOutgoing()S
+		// 13
+		staticMethodRef 0.16.6([BSS)S;		// javacard/framework/Util.setShort([BSS)S
+		// 14
+		virtualMethodRef 0.10.9(S)V;		// javacard/framework/APDU.setOutgoingLength(S)V
+		// 15
+		virtualMethodRef 0.10.4(SS)V;		// javacard/framework/APDU.sendBytes(SS)V
+		// 16
+		virtualMethodRef 0.10.3(S)S;		// javacard/framework/APDU.receiveBytes(S)S
+		// 17
+		staticMethodRef 1.10.0()Lsim/toolkit/ProactiveHandler;;		// sim/toolkit/ProactiveHandler.getTheHandler()Lsim/toolkit/ProactiveHandler;
+			.descriptor	Lsim/toolkit/ProactiveHandler;	1.10;
+
+		// 18
+		staticMethodRef 1.5.0()Lsim/toolkit/ProactiveResponseHandler;;		// sim/toolkit/ProactiveResponseHandler.getTheHandler()Lsim/toolkit/ProactiveResponseHandler;
+			.descriptor	Lsim/toolkit/ProactiveResponseHandler;	1.5;
+
+		// 19
+		virtualMethodRef 1.10.21(BBB)V;		// sim/toolkit/ProactiveHandler.init(BBB)V
+		// 20
+		virtualMethodRef 1.10.22()B;		// sim/toolkit/ProactiveHandler.send()B
+		// 21
+		staticFieldRef byte[] HelloWorldUsimRel5/msg;
+		// 22
+		virtualMethodRef 1.10.15(BB[BSS)V;		// sim/toolkit/ProactiveHandler.appendTLV(BB[BSS)V
+	}
+
+	.class public HelloWorldUsimRel5 0 extends 0.3 {		// extends javacard/framework/Applet
+
+		.shareable;
+
+		.fields {
+			private 1.9 reg 0;		// Lsim/toolkit/ToolkitRegistry;
+			protected static HelloWorldUsimRel5 instance 0;		// Lhelloworldusimrel5/HelloWorldUsimRel5;
+			private static final byte DT_CQ = -127;		// B
+			private static final byte DCS_8_BIT_DATA = 4;		// B
+			private static final byte VALUE_ZERO = 0;		// B
+			private static final byte OFFSET_ZERO = 0;		// B
+			private static final byte[] msg = {84,104,105,115,32,105,115,32,102,105,114,115,116,32,72,101,108,108,111,32,102,111,114,109,32,71,108,111,98,101,84,111,117,99,104,33,33,33};		// [B
+		}
+
+		.publicMethodTable 7 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+			processToolkit(B)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.implementedInterfaceInfoTable { 
+			.interface 0.2 { 		// javacard/framework/Shareable
+			}
+
+			.interface 1.1 { 		// sim/toolkit/ToolkitInterface
+				8;		// processToolkit(B)V
+			}
+
+			.interface 1.0 { 		// sim/toolkit/ToolkitConstants
+			}
+
+		}
+
+		.method public <init>()V 0 {
+			.stack 2;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 2;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					invokestatic 1;		// sim/toolkit/ToolkitRegistry.getEntry()Lsim/toolkit/ToolkitRegistry;
+					putfield_a 0;		// reference helloworldusimrel5/HelloWorldUsimRel5.reg
+					getfield_a_this 0;		// reference helloworldusimrel5/HelloWorldUsimRel5.reg
+					sconst_1;
+					invokevirtual 3;		// sim/toolkit/ToolkitRegistry.setEvent(B)V
+					getfield_a_this 0;		// reference helloworldusimrel5/HelloWorldUsimRel5.reg
+					bspush 127;
+					invokevirtual 3;		// sim/toolkit/ToolkitRegistry.setEvent(B)V
+					return;
+		}
+
+		.method public static install([BSB)V 1 {
+			.stack 5;
+			.locals 1;
+
+				L0:	new 4;		// helloworldusimrel5/HelloWorldUsimRel5
+					dup;
+					invokespecial 5;		// helloworldusimrel5/HelloWorldUsimRel5.<init>()V
+					astore_3;
+					aload_3;
+					aload_0;
+					sload_1;
+					sconst_1;
+					sadd;
+					aload_0;
+					sload_1;
+					baload;
+					invokevirtual 6;		// javacard/framework/Applet.register([BSB)V
+					return;
+		}
+
+		.method public processToolkit(B)V 8 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sload_1;
+					stableswitch L2 1 1 L1;
+				L1:	aload_0;
+					invokespecial 7;		// helloworldusimrel5/HelloWorldUsimRel5.processDT()V
+				L2:	return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 4;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_0;
+					invokevirtual 8;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload_1;
+					invokevirtual 9;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+					aload_2;
+					sconst_0;
+					baload;
+					ifeq L4;
+				L3:	sspush 28160;
+					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	aload_2;
+					sconst_1;
+					baload;
+					bspush 68;
+					if_scmpeq L6;
+				L5:	sspush 27904;
+					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
+				L6:	aload_2;
+					sconst_4;
+					baload;
+					sstore_3;
+					sload_3;
+					ifgt L8;
+				L7:	sspush 26368;
+					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 11;		// javacard/framework/APDU.setIncomingAndReceive()S
+					sstore 4;
+					goto L10;
+				L9:	sload_3;
+					sload 4;
+					ssub;
+					sstore_3;
+					aload_1;
+					sconst_5;
+					invokevirtual 16;		// javacard/framework/APDU.receiveBytes(S)S
+					sstore 4;
+				L10:	sload_3;
+					ifgt L9;
+				L11:	sconst_0;
+					sstore 5;
+					aconst_null;
+					checkcast 11 0;		// T_BYTE
+					astore 6;
+					aload_1;
+					invokevirtual 12;		// javacard/framework/APDU.setOutgoing()S
+					sstore_3;
+					sload_3;
+					sconst_2;
+					if_scmpge L13;
+				L12:	sspush 26368;
+					invokestatic 10;		// javacard/framework/ISOException.throwIt(S)V
+				L13:	aload 6;
+					ifnonnull L18;
+				L14:	sload 5;
+					sspush -28672;
+					if_scmpne L16;
+				L15:	sspush 25604;
+					goto L17;
+				L16:	sspush 25605;
+				L17:	sstore 5;
+					aload_1;
+					aload_2;
+					sconst_0;
+					sload 5;
+					invokestatic 13;		// javacard/framework/Util.setShort([BSS)S
+					invokevirtual 14;		// javacard/framework/APDU.setOutgoingLength(S)V
+					aload_1;
+					sconst_0;
+					sconst_2;
+					invokevirtual 15;		// javacard/framework/APDU.sendBytes(SS)V
+				L18:	return;
+		}
+
+		.method private processDT()V {
+			.stack 6;
+			.locals 2;
+
+				L0:	invokestatic 17;		// sim/toolkit/ProactiveHandler.getTheHandler()Lsim/toolkit/ProactiveHandler;
+					astore_1;
+					invokestatic 18;		// sim/toolkit/ProactiveResponseHandler.getTheHandler()Lsim/toolkit/ProactiveResponseHandler;
+					astore_2;
+					aload_1;
+					bspush 38;
+					sconst_0;
+					bspush -126;
+					invokevirtual 19;		// sim/toolkit/ProactiveHandler.init(BBB)V
+					aload_1;
+					invokevirtual 20;		// sim/toolkit/ProactiveHandler.send()B
+					pop;
+					aload_1;
+					bspush 33;
+					bspush -127;
+					bspush -126;
+					invokevirtual 19;		// sim/toolkit/ProactiveHandler.init(BBB)V
+					aload_1;
+					bspush 13;
+					sconst_4;
+					getstatic_a 21;		// reference helloworldusimrel5/HelloWorldUsimRel5.msg
+					sconst_0;
+					getstatic_a 21;		// reference helloworldusimrel5/HelloWorldUsimRel5.msg
+					arraylength;
+					invokevirtual 22;		// sim/toolkit/ProactiveHandler.appendTLV(BB[BSS)V
+					aload_1;
+					invokevirtual 20;		// sim/toolkit/ProactiveHandler.send()B
+					pop;
+					return;
+		}
+
+	}
+
+}

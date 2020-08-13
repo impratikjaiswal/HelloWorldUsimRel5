@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="./"/>
+	<classpathentry kind="lib" path="D:/Libs/toolkitlibrarys/Release_5/ETSI_TS_102_241_v6.3.0/lib/uicc.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/D:/Libs/toolkitlibrarys/Release_5/ETSI_TS_102_241_v6.3.0/doc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Libs/toolkitlibrarys/Release_5/3GPP_TS_43.019_v5.6.0/lib/sim.jar">   
+		<attributes>
+			<attribute name="javadoc_location" value="file:/D:/Libs/toolkitlibrarys/Release_5/3GPP_TS_43.019_v5.6.0/doc/api/"/>
+		</attributes>
+	</classpathentry>
+			<!-- JavaCard Development Kit 2.2.1 -->
+	<classpathentry kind="con" path="JCDK2.2.2"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
